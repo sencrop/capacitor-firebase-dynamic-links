@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.dependency 'Firebase/Analytics'
   s.dependency 'Firebase/DynamicLinks'
   s.swift_version = '5.1'
+  s.static_framework = true
 end
