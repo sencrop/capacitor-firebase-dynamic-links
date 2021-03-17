@@ -42,9 +42,9 @@ addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => voi
 
 #### PluginListenerHandle
 
-| Prop         | Type                      |
-| ------------ | ------------------------- |
-| **`remove`** | <code>() =&gt; any</code> |
+| Prop         | Type                       |
+| ------------ | -------------------------- |
+| **`remove`** | <code>() =&gt; void</code> |
 
 
 #### DeepLinkOpen
