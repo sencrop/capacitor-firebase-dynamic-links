@@ -3,7 +3,7 @@ package com.sencrop.capacitor.firebase.dynamiclinks;
 import android.content.Intent;
 import android.net.Uri;
 import com.getcapacitor.JSObject;
-import com.getcapacitor.NativePlugin;
+import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.Plugin;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 
 import static android.content.ContentValues.TAG;
 
-@NativePlugin(name = "CapacitorFirebaseDynamicLinks")
+@CapacitorPlugin(name = "CapacitorFirebaseDynamicLinks")
 public class CapacitorFirebaseDynamicLinksPlugin extends Plugin {
 
     private static final String EVENT_DEEP_LINK = "deepLinkOpen";
