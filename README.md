@@ -13,7 +13,7 @@ npx cap sync
 
 <docgen-index>
 
-* [`addListener(...)`](#addlistener)
+* [`addListener('deepLinkOpen', ...)`](#addlistenerdeeplinkopen-)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -21,7 +21,7 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### addListener(...)
+### addListener('deepLinkOpen', ...)
 
 ```typescript
 addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => void) => PluginListenerHandle
@@ -29,7 +29,7 @@ addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => voi
 
 | Param              | Type                                                                     |
 | ------------------ | ------------------------------------------------------------------------ |
-| **`eventName`**    | <code>"deepLinkOpen"</code>                                              |
+| **`eventName`**    | <code>'deepLinkOpen'</code>                                              |
 | **`listenerFunc`** | <code>(data: <a href="#deeplinkopen">DeepLinkOpen</a>) =&gt; void</code> |
 
 **Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
@@ -42,9 +42,9 @@ addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => voi
 
 #### PluginListenerHandle
 
-| Prop         | Type                       |
-| ------------ | -------------------------- |
-| **`remove`** | <code>() =&gt; void</code> |
+| Prop         | Type                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 
 #### DeepLinkOpen
