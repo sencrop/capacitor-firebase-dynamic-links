@@ -10,30 +10,29 @@ import FirebaseDynamicLinks
 @objc(CapacitorFirebaseDynamicLinksPlugin)
 public class CapacitorFirebaseDynamicLinksPlugin: CAPPlugin {
 
-    public override func load() {
-        if (FirebaseApp.app() == nil) {
+    override public func load() {
+        if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUrlOpened(notification:)), name: Notification.Name(CAPNotifications.URLOpen.name()), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUniversalLink(notification:)), name: Notification.Name(CAPNotifications.UniversalLinkOpen.name()), object: nil)
     }
-    
-    
+
     @objc func handleUrlOpened(notification: NSNotification) {
         guard
-          let object = notification.object as? [String: Any?],
-          let url = object["url"] as? URL
+            let object = notification.object as? [String: Any?],
+            let url = object["url"] as? URL
         else {
             print("CapacitorFirebaseDynamicLinks.handleUrlOpened() - couldn't parse url from notification")
             return
         }
 
         if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
-          self.handleLink(dynamicLink)
+            self.handleLink(dynamicLink)
         } else {
-          // This is likely to be a custom URL from some other process
-      }
+            // This is likely to be a custom URL from some other process
+        }
     }
 
     @objc func handleUniversalLink(notification: NSNotification) {
@@ -48,12 +47,12 @@ public class CapacitorFirebaseDynamicLinksPlugin: CAPPlugin {
 
         let response = DynamicLinks.dynamicLinks().handleUniversalLink(parsed) { (dynamiclink, error) in
             guard error == nil else {
-              print("handleUniversalLink -> error: \(String(describing: error?.localizedDescription))")
-              return
+                print("handleUniversalLink -> error: \(String(describing: error?.localizedDescription))")
+                return
             }
 
             if let dynamicLink = dynamiclink {
-              self.handleLink(dynamicLink)
+                self.handleLink(dynamicLink)
             }
         }
 
@@ -66,13 +65,13 @@ public class CapacitorFirebaseDynamicLinksPlugin: CAPPlugin {
     }
 
     func handleLink(_ dynamicLink: DynamicLink) {
-      guard let url = dynamicLink.url else {
-        print("CapacitorFirebaseDynamicLinks.handleLink() - Dynamic link has no url")
-        return
-      }
+        guard let url = dynamicLink.url else {
+            print("CapacitorFirebaseDynamicLinks.handleLink() - Dynamic link has no url")
+            return
+        }
 
-      print("CapacitorFirebaseDynamicLinks.handleLink() - url: \(url.absoluteString)")
+        print("CapacitorFirebaseDynamicLinks.handleLink() - url: \(url.absoluteString)")
 
-      self.notifyListeners("deepLinkOpen", data: ["url": url.absoluteString], retainUntilConsumed: true)
+        self.notifyListeners("deepLinkOpen", data: ["url": url.absoluteString], retainUntilConsumed: true)
     }
 }
