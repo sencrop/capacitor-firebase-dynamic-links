@@ -1,20 +1,18 @@
 package com.sencrop.capacitor.firebase.dynamiclinks;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.getcapacitor.JSObject;
-import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.Plugin;
+import com.getcapacitor.annotation.CapacitorPlugin;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
-
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
-import static android.content.ContentValues.TAG;
 
 @CapacitorPlugin(name = "CapacitorFirebaseDynamicLinks")
 public class CapacitorFirebaseDynamicLinksPlugin extends Plugin {
@@ -25,9 +23,12 @@ public class CapacitorFirebaseDynamicLinksPlugin extends Plugin {
     protected void handleOnNewIntent(Intent intent) {
         super.handleOnNewIntent(intent);
 
-        FirebaseDynamicLinks.getInstance()
-                .getDynamicLink(intent)
-                .addOnSuccessListener(getActivity(), new OnSuccessListener<PendingDynamicLinkData>() {
+        FirebaseDynamicLinks
+            .getInstance()
+            .getDynamicLink(intent)
+            .addOnSuccessListener(
+                getActivity(),
+                new OnSuccessListener<PendingDynamicLinkData>() {
                     @Override
                     public void onSuccess(PendingDynamicLinkData pendingDynamicLinkData) {
                         Uri deepLink = null;
@@ -41,12 +42,16 @@ public class CapacitorFirebaseDynamicLinksPlugin extends Plugin {
                             notifyListeners(EVENT_DEEP_LINK, ret, true);
                         }
                     }
-                })
-                .addOnFailureListener(getActivity(), new OnFailureListener() {
+                }
+            )
+            .addOnFailureListener(
+                getActivity(),
+                new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG, "getDynamicLink:onFailure", e);
                     }
-                });
+                }
+            );
     }
 }

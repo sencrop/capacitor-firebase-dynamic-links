@@ -11,7 +11,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:7.0.2'
     }
 }
 
@@ -58,6 +58,7 @@ dependencies {
 
 
     // Import the BoM for the Firebase platform
+    // Version blocked by https://github.com/ionic-team/capacitor-plugins/issues/394
     implementation platform('com.google.firebase:firebase-bom:26.7.0')
 
     // When using the BoM, you don't specify versions in Firebase library dependencies
