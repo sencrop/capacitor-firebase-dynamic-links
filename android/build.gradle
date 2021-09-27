@@ -58,7 +58,8 @@ dependencies {
 
 
     // Import the BoM for the Firebase platform
-    implementation platform('com.google.firebase:firebase-bom:28.4.1')
+    // Version blocked by https://github.com/ionic-team/capacitor-plugins/issues/394
+    implementation platform('com.google.firebase:firebase-bom:26.7.0')
 
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-dynamic-links'
