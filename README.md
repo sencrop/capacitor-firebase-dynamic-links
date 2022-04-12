@@ -1,6 +1,6 @@
 # @sencrop/capacitor-firebase-dynamic-links
 
-Firebase dynamic links Plugin for Capacitoritor
+Firebase dynamic links Plugin for Capacitor
 
 ## Install
 
