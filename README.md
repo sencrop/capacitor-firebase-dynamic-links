@@ -13,7 +13,7 @@ npx cap sync
 
 <docgen-index>
 
-* [`addListener('deepLinkOpen', ...)`](#addlistenerdeeplinkopen-)
+* [`addListener('deepLinkOpen', ...)`](#addlistenerdeeplinkopen)
 * [Interfaces](#interfaces)
 
 </docgen-index>
