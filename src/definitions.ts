@@ -5,5 +5,5 @@ export interface DeepLinkOpen {
 }
 
 export interface CapacitorFirebaseDynamicLinksPlugin {
-  addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => void): PluginListenerHandle;
+  addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => void): Promise<PluginListenerHandle>;
 }
