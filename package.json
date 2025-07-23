@@ -1,6 +1,6 @@
 {
   "name": "@sencrop/capacitor-firebase-dynamic-links",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Firebase dynamic links Plugin for Capacitoritor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
