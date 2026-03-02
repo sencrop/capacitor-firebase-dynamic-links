@@ -13,7 +13,7 @@ npx cap sync
 
 <docgen-index>
 
-* [`addListener('deepLinkOpen', ...)`](#addlistenerdeeplinkopen)
+* [`addListener('deepLinkOpen', ...)`](#addlistenerdeeplinkopen-)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -24,7 +24,7 @@ npx cap sync
 ### addListener('deepLinkOpen', ...)
 
 ```typescript
-addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => void) => PluginListenerHandle
+addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => void) => Promise<PluginListenerHandle>
 ```
 
 | Param              | Type                                                                     |
@@ -32,7 +32,7 @@ addListener(eventName: 'deepLinkOpen', listenerFunc: (data: DeepLinkOpen) => voi
 | **`eventName`**    | <code>'deepLinkOpen'</code>                                              |
 | **`listenerFunc`** | <code>(data: <a href="#deeplinkopen">DeepLinkOpen</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 --------------------
 
